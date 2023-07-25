@@ -21,8 +21,20 @@ const BOARD_REPR: &[&str] = &[
     "  ooo  ",
     "  ooo  "
 ];
+/*
+  Other variations you can try:
 
-const BIG_BOARD_REPR: &[&str] = &[
+    "European board"
+    "  ooo  ",
+    " ooooo ",
+    "ooooooo",
+    "oooxooo",
+    "ooooooo",
+    " ooooo ",
+    "  ooo  "
+
+    "Big board" (change board::BOARD_SIZE to 9)
+
     "   ooo   ",
     "   ooo   ",
     "   ooo   ",
@@ -32,7 +44,8 @@ const BIG_BOARD_REPR: &[&str] = &[
     "   ooo   ",
     "   ooo   ",
     "   ooo   "
-];
+ */
+
 fn main() {
 
     env::set_var("RUST_BACKTRACE", "1");
@@ -52,7 +65,7 @@ fn main() {
         stdin.read_line(&mut user_input).unwrap();
         let choice = user_input.chars().next().expect("Input shouldn't be empty");
         match choice {
-            '1' => game(&mut board),
+            '1' => game(),
             '2' => autoplay(),
             '3' => {
                 backtrack(&mut board);
@@ -65,8 +78,9 @@ fn main() {
     }
 }
 
-fn game(board: &mut Board) {
+fn game() {
     let stdin = io::stdin();
+    let mut board = Board::from_strings(BOARD_REPR);
     loop {
         println!("{}", board.to_string());
         println!("Enter your move or q to quit: ");
