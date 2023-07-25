@@ -8,10 +8,12 @@ A command-line application implementing the game of [Peg Solitaire](https://en.w
 ## Build
 To build the program you need the Rust compiler. The easiest to install it is with [rustup](https://www.rust-lang.org/learn/get-started).
 Clone or download this repository
-```git clone https://github.com/dani-dlg/peg-solver
+```
+git clone https://github.com/dani-dlg/peg-solver
 ```
 Build the program with
-```cd peg-solver
+```
+cd peg-solver
 cargo run --release
 ```
 
